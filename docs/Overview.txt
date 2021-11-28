@@ -43,8 +43,11 @@ Endpoints Needed
 	Sign In:
 		Compare User's username/email and password to the corresponding one in Db1.
 		Update LastLoggedIn.
-	Make Transaction:
-		Add Category, Amount, and Date in Db2 to the corresponding user from Db1.
 	Update Account:
 		Compare and Update Username, Password, and Email to Db1.
-	
+	Make Transaction:
+		Add Category, Amount, and Date in Db2 to the corresponding user from Db1.
+	Get some Transactions:
+		Read all transactions of a given category.
+	Get all Transactions:
+		Read all transactions.
