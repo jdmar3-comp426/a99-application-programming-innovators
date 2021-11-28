@@ -29,10 +29,11 @@ Per user:
 	LastLoggedIn
 Database 2 (Db2): Transactions
 Per Transaction:
+	User ID
+	Date (autodetect)
 	Category (from predefined list)
 	Amount (positive number)
-	Date (autodetect)
-	User ID
+
 
 Endpoints Needed
 	Create Account:
