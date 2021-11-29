@@ -99,7 +99,7 @@ app.post("/app/new/transaction", (req, res, next) => {
 
 //READ all transactions for a user at endpoint /app/transactions/:id
 app.get("/app/transactions/:id", (req, res) => {	
-	const stmt = db2.prepare("SELECT * FROM transactions WHERE id = ?").get(req.params.id);
+	const stmt = db2.prepare("SELECT * FROM transactions WHERE id = ?").all(req.params.id);
 	res.json(stmt);
     res.status(200);
 });
