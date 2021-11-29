@@ -49,6 +49,7 @@ app.delete("/app/delete/user/:id", (req, res) => {
 	const stmt = db1.prepare("DELETE FROM userinfo WHERE id = ?");
 	const stmt2 =db2.prepare("DELETE FROM transactions WHERE id = ?");
 	const info = stmt.run(req.params.id);
+	const info2 = stmt2.run(req.params.id);
 
 	res.status(200).json({"message":info.changes + " record deleted: ID " + req.params.id + " (200)"});
 
