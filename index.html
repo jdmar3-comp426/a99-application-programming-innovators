@@ -1,0 +1,48 @@
+<!-- This is a barebones test html meant to show database <===> html communication -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The BudgetApp</title>
+  </head>
+  <body class="content">
+    <form id="Create Account">
+      <label for="user">Username:</label>
+      <input id="user" name="user" value="">
+        
+      <label for="email">Email Address:</label>
+      <input id="email" name="email" value="">
+
+      <label for="pass">Password:</label>
+      <input type="password" id="pass" name="pass" value="">
+      <input type="submit" value="Create">
+    </form>
+    
+    <form id="Update Account">
+      <label for="id">ID:</label>
+      <input id="id" name="id" value="">
+
+      <label for="user">Username:</label>
+      <input id="user" name="user" value="">
+        
+      <label for="email">Email Address:</label>
+      <input id="email" name="email" value="">
+
+      <label for="pass">Password:</label>
+      <input type="password" id="pass" name="pass" value="">
+      <input type="submit" value="Update">
+    </form>
+
+    <form id="Delete Account">
+      <label for="id">ID:</label>
+      <input id="id" name="id" value="">
+
+      <input type="submit" value="Delete">
+    </form>
+
+    <p id="Element to Change">Press the button to replace me with the current database!</p>
+    <input id="Get Example" type="submit" value="Get">
+
+      <script src="./indexToDb.js"></script>
+  </body>
+</html>

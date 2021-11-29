@@ -27,7 +27,7 @@ app.get("/app/", (req, res, next) => {
 });
 //CREATE a new user at endpoint /app/new/user
 app.post("/app/new/user", (req, res, next) => { //may be /app/new/user
-	console.log("user added to db1 with data: "+ req.body);
+	console.log(req.body);
 	var data = {
 		user: req.body.user,
 		pass: req.body.pass ? md5(req.body.pass) : null,
@@ -41,8 +41,7 @@ app.post("/app/new/user", (req, res, next) => { //may be /app/new/user
 // DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id
 app.delete("/app/delete/user/:id", (req, res) => {
 	const stmt = db1.prepare("DELETE FROM userinfo WHERE id = ?");
-	const stmt2 =db2.prepare("DELETE * FROM transactions WHERE id = ?");
-
+//	const stmt2 =db2.prepare("DELETE * FROM transactions WHERE id = ?");
 	const info = stmt.run(req.params.id);
 
 	res.status(200).json({"message":info.changes + " record deleted: ID " + req.params.id + " (200)"});
@@ -54,6 +53,12 @@ app.get("/app/user/:id", (req, res) => {
 	res.json(stmt);
     res.status(200);
 });
+//GET ALL
+// READ a list of all users (HTTP method GET) at endpoint /app/users/
+app.get("/app/users", (req, res) => {	
+	const stmt = db1.prepare("SELECT * FROM userinfo ").all();
+	res.status(200).json(stmt);
+});
 
 // UPDATE a single user (HTTP method PATCH) at endpoint /app/update/user/:id
 app.patch("/app/update/user/:id", (req, res) => {
@@ -64,11 +69,11 @@ app.patch("/app/update/user/:id", (req, res) => {
 		lastlogin: req.body.lastlogin
     }
     
-    const stmt = db.prepare("UPDATE userinfo SET user = COALESCE(?, user), pass = COALESCE(?, pass), email = COALESCE(?, email), lastlogin = COALESCE(?, lastlogin) WHERE id = ?");
-	const info = stmt.run(data.user, md5(data.pass), data.email, data.lastlogin, req.params.id);
+    const stmt = db1.prepare("UPDATE userinfo SET user = COALESCE(?, user), pass = COALESCE(?, pass), email = COALESCE(?, email), lastlogin = COALESCE(?, lastlogin) WHERE id = ?");
+	const info = stmt.run(data.user, data.pass, data.email, data.lastlogin, req.params.id);
 
     res.status(201).json({"message":info.changes + " record updated: ID " + req.params.id + " (201)"});
-	res.json(stmt);
+	//res.json(stmt);
 	
 });
 
@@ -84,6 +89,13 @@ app.post("/app/new/transaction", (req, res, next) => { //may be /app/new/user
 	const stmt = db2.prepare("INSERT INTO transactions (id, time, category, amount) VALUES (?, ?, ?, ?)");
 	const info = stmt.run(data.id, data.time, data.category, data.amount);
 	res.status(201).json({"message":stmt.changes + " record created: ID " + info.lastInsertRowid + " (201)"});
+});
+
+//READ all transactions for a user at endpoint /app/transactions/:id
+app.get("/app/transactions/:id", (req, res) => {	
+	const stmt = db2.prepare("SELECT * FROM transactions WHERE id = ?").get(req.body.id);
+	res.json(stmt);
+    res.status(200);
 });
 
 // Default response for any other request
