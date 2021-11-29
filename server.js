@@ -47,7 +47,7 @@ app.post("/app/new/user", (req, res, next) => { //may be /app/new/user
 // DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id
 app.delete("/app/delete/user/:id", (req, res) => {
 	const stmt = db1.prepare("DELETE FROM userinfo WHERE id = ?");
-//	const stmt2 =db2.prepare("DELETE * FROM transactions WHERE id = ?");
+	const stmt2 =db2.prepare("DELETE FROM transactions WHERE id = ?");
 	const info = stmt.run(req.params.id);
 
 	res.status(200).json({"message":info.changes + " record deleted: ID " + req.params.id + " (200)"});
@@ -84,8 +84,7 @@ app.patch("/app/update/user/:id", (req, res) => {
 });
 
 //CREATE a new transaction at endpoint /app/new/transaction
-app.post("/app/new/transaction", (req, res, next) => { //may be /app/new/user
-	console.log("transaction added to db2 with data: "+ req.body);
+app.post("/app/new/transaction", (req, res, next) => {
 	var data = {
 		id: req.body.id,
 		time: currentTime(),
@@ -99,9 +98,15 @@ app.post("/app/new/transaction", (req, res, next) => { //may be /app/new/user
 
 //READ all transactions for a user at endpoint /app/transactions/:id
 app.get("/app/transactions/:id", (req, res) => {	
-	const stmt = db2.prepare("SELECT * FROM transactions WHERE id = ?").get(req.body.id);
+	const stmt = db2.prepare("SELECT * FROM transactions WHERE id = ?").get(req.params.id);
 	res.json(stmt);
     res.status(200);
+});
+
+//READ all transactions at endpoint /app/transactions/
+app.get("/app/transactions/", (req, res) => {	
+	const stmt = db2.prepare("SELECT * FROM transactions ").all();
+	res.status(200).json(stmt);
 });
 
 // Default response for any other request

@@ -15,7 +15,7 @@ if (TRow === undefined) {
     // Set a const that will contain your SQL commands to initialize the database.
         const sqlTInit = `
             CREATE TABLE transactions ( id INTEGER, time TEXT, category TEXT, amount INTEGER);
-            INSERT INTO transactions (id, time, category, amount) VALUES ('0', '8/4/20 16:00:00 UTC', 'Food', '200.87');
+            INSERT INTO transactions (id, time, category, amount) VALUES ('0', '8/4/20, 16:00:00 UTC', 'Food', '200.87');
             `;
     // Execute SQL commands that we just wrote above.
         db2.exec(sqlTInit);

@@ -112,3 +112,73 @@ getBtn.addEventListener("click", function (event) {
     event.preventDefault();
     getData();
 });
+//---------------------------------------------------------------------------------------------------------------------------//
+function getTransactions(){
+    //creates a new XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    //I do not understand why onreadystatechange is necessary, but it is.
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4 && xhr.status == 200)
+            //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
+            //id="Element to Change" to that.
+            document.getElementById("Element to Change 2").textContent = xhr.responseText;
+    }
+    //the GET request is opened to the respective endpoint
+    xhr.open("GET", "http://localhost:5000/app/transactions");
+    //the request is sent
+    xhr.send();
+    
+}
+//accesses the Get Example button from the html
+const getBtn2 = document.getElementById("Get Transactions");
+//adds listener to the button
+getBtn2.addEventListener("click", function (event) {
+    console.log("button clicked!");
+    event.preventDefault();
+    getTransactions();
+});
+//---------------------------------------------------------------------------------------------------------------------------//
+function getSomeTransacions(){
+    const xhr = new XMLHttpRequest();
+    const signupInfo = new URLSearchParams(new FormData( someTransactionForm ));
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4 && xhr.status == 200)
+            //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
+            //id="Element to Change" to that.
+            document.getElementById("Element to Change 3").textContent = xhr.responseText;
+    }
+    xhr.open("GET", "http://localhost:5000/app/transactions/" + signupInfo.get("id"));
+    xhr.send();
+}
+const someTransactionForm = document.getElementById("Get Some Transactions");
+someTransactionForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    getSomeTransacions();
+});
+//---------------------------------------------------------------------------------------------------------------------------//
+function CreateTransaction() {
+    //creates a new XMLHttpRequest
+    var sendRequest = new XMLHttpRequest();
+    //parses the data into a readable format
+    var signupInfo = new URLSearchParams(new FormData( transactionForm ));
+    //alerts sent as pop-ups if request makes it to server or not
+    sendRequest.addEventListener( "load", function( event ) {
+        alert( "Your account was successfully created!");
+    });
+        
+     sendRequest.addEventListener( "error", function (event) {
+        alert( "Submission unsuccessful, Please try again." );
+    });
+
+    //the POST request is opened to the respective endpoint 
+    sendRequest.open( "POST", "http://localhost:5000/app/new/transaction" ); //end point is address
+    //the request is sent with the data to the database
+    sendRequest.send( signupInfo );
+}
+//accesses the Create Account element from the html.
+const transactionForm = document.getElementById("Create Transaction");
+//adds listener to the button in createForm
+transactionForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    CreateTransaction();
+});

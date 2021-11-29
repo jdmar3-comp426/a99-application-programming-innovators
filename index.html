@@ -6,6 +6,7 @@
     <title>The Budget App</title>
   </head>
   <body class="content">
+    <h2>Create Account</h2>
     <form id="Create Account">
       <label for="user">Username:</label>
       <input id="user" name="user" value="">
@@ -17,7 +18,7 @@
       <input type="password" id="pass" name="pass" value="">
       <input type="submit" value="Create">
     </form>
-    
+    <h2>Update Account</h2>    
     <form id="Update Account">
       <label for="id">ID:</label>
       <input id="id" name="id" value="">
@@ -32,16 +33,45 @@
       <input type="password" id="pass" name="pass" value="">
       <input type="submit" value="Update">
     </form>
-
+    <h2>Delete Account</h2>
     <form id="Delete Account">
       <label for="id">ID:</label>
       <input id="id" name="id" value="">
 
       <input type="submit" value="Delete">
     </form>
-
-    <p id="Element to Change">Press the button to replace me with the current database!</p>
+    <h2>User Db Get</h2>
+    <p id="Element to Change">Press the button to replace me with the user database!</p>
     <input id="Get Example" type="submit" value="Get">
+
+    <h2>Create Transaction</h2>
+    <form id="Create Transaction">
+      <label for="id">ID:</label>
+      <input id="id" name="id" value="">
+        
+      <label for="category">Category:</label>
+      <input id="category" name="category" value="">
+
+      <label for="amount">Amount:</label>
+      <input id="amount" name="amount" value="">
+  
+      <input type="submit" value="Create">
+    </form>
+
+    <h2>Transaction Db Get</h2>
+    <p id="Element to Change 2">Press the button to replace me with the transaction database!</p>
+    <input id="Get Transactions" type="submit" value="Get">
+
+    <h2>Transactions per User Get</h2>
+    <p id="Element to Change 3">Press the button to replace me with the transactions of user ID!</p>
+    <form id="Get Some Transactions">
+      <label for="id">ID:</label>
+      <input id="id" name="id" value="">
+      <input type="submit" value="Get">
+    </form>
+
+
+
 
       <script src="./indexToDb.js"></script>
   </body>
