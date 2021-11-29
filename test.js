@@ -1,3 +1,7 @@
 //This file is just for testing purposes. When final version, please delete.
-const d = new Date();
-console.log(d.getTime()/365);
+function currentTime() {
+    const d = new Date();
+    return d.getUTCMonth()+1+"/"+d.getUTCDate()+"/"+d.getUTCFullYear()+", "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds()+" UTC"
+}
+
+console.log(currentTime());

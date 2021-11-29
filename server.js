@@ -11,7 +11,7 @@ const cors = require("cors")
 // Make Express use its own built-in body parser
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
+// Make the server use cors
 app.use(cors());
 
 // Set server port
@@ -20,6 +20,12 @@ var HTTP_PORT = 5000
 const server = app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
+
+//method to calculate endpoint call times
+function currentTime() {
+    const d = new Date();
+    return d.getUTCMonth()+1+"/"+d.getUTCDate()+"/"+d.getUTCFullYear()+", "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds()+" UTC"
+}
 // READ (HTTP method GET) at root endpoint /app/
 app.get("/app/", (req, res, next) => {
     res.json({"message":"Your API works! (200)"});
@@ -32,10 +38,10 @@ app.post("/app/new/user", (req, res, next) => { //may be /app/new/user
 		user: req.body.user,
 		pass: req.body.pass ? md5(req.body.pass) : null,
 		email: req.body.email,
-		lastlogin: req.body.lastlogin
+		lastlogin: currentTime()
 	}
 	const stmt = db1.prepare("INSERT INTO userinfo (user, pass, email, lastlogin) VALUES (?, ?, ?, ?)");
-	const info = stmt.run(req.body.user, req.body.pass, req.body.email, req.body.lastlogin);
+	const info = stmt.run(data.user, data.pass, data.email, data.lastlogin);
 	res.status(201).json({"message":stmt.changes + " record created: ID " + info.lastInsertRowid + " (201)"});
 });
 // DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id
@@ -63,10 +69,10 @@ app.get("/app/users", (req, res) => {
 // UPDATE a single user (HTTP method PATCH) at endpoint /app/update/user/:id
 app.patch("/app/update/user/:id", (req, res) => {
 	var data = {
-        user: req.body.user,
+        user: req.body.user ? req.body.user : null,
         pass: req.body.pass ? md5(req.body.pass) : null,
-        email: req.body.email,
-		lastlogin: req.body.lastlogin
+        email: req.body.email ? req.body.email : null,
+		lastlogin: currentTime()
     }
     
     const stmt = db1.prepare("UPDATE userinfo SET user = COALESCE(?, user), pass = COALESCE(?, pass), email = COALESCE(?, email), lastlogin = COALESCE(?, lastlogin) WHERE id = ?");
@@ -82,7 +88,7 @@ app.post("/app/new/transaction", (req, res, next) => { //may be /app/new/user
 	console.log("transaction added to db2 with data: "+ req.body);
 	var data = {
 		id: req.body.id,
-		tine: req.body.time,
+		time: currentTime(),
 		category: req.body.category,
 		amount: req.body.amount
 	}
