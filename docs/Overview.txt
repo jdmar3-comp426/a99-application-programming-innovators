@@ -26,7 +26,7 @@ Per user:
 	Password (encrypted)
 	Email
 	User ID (hashed)
-	LastLoggedIn
+	LastLoggedIn (autodetect)
 Database 2 (Db2): Transactions
 Per Transaction:
 	User ID

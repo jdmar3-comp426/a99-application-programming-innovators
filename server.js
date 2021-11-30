@@ -32,7 +32,7 @@ app.get("/app/", (req, res, next) => {
 	res.status(200);
 });
 //CREATE a new user at endpoint /app/new/user
-app.post("/app/new/user", (req, res, next) => { //may be /app/new/user
+app.post("/app/new/user", (req, res, next) => {
 	console.log(req.body);
 	var data = {
 		user: req.body.user,
