@@ -54,5 +54,7 @@ All the rest of the assignment instructions are available at: https://comp426.jo
 Good skill, and have fun with this!
 
 
+Links to Documentation:
 
-[link to overview of project](/docs/overview.md)
+[link to overview of project](/docs/overview.txt)
+[link to roles for the project](/docs/Roles.txt)
