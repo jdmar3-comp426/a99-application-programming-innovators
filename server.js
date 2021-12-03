@@ -44,7 +44,6 @@ app.post("/app/new/user", (req, res, next) => {
 	const stmt = db1.prepare("INSERT INTO userinfo (user, pass, email, lastlogin) VALUES (?, ?, ?, ?)");
 	const info = stmt.run(data.user, data.pass, data.email, data.lastlogin);
 	res.status(201).json({"message":stmt.changes + " record created: ID " + info.lastInsertRowid + " (201)"});
-	currentUser = info.lastInsertRowid;
 });
 // DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id
 app.delete("/app/delete/user/:id", (req, res) => {
@@ -62,6 +61,16 @@ app.get("/app/user/:id", (req, res) => {
 	res.json(stmt);
     res.status(200);
 });
+//READ a single users id at endpoint /app/getfromid
+app.get("/app/getfromid", (req, res) => {
+	var data = {
+        user: req.body.user ? req.body.user : null,
+        pass: req.body.pass ? md5(req.body.pass) : null,
+        email: req.body.email ? req.body.email : null,
+		lastlogin: currentTime()
+    }
+	const stmt = db1.prepare("SELECT id FROM userinfo WHERE user = ? AND pass = ? AND email = ?").get()
+})
 //GET ALL
 // READ a list of all users (HTTP method GET) at endpoint /app/users/
 app.get("/app/users", (req, res) => {	
@@ -117,5 +126,3 @@ app.use(function(req, res){
 	res.json({"message":"Endpoint not found. (404)"});
     res.status(404);
 });
-
-module.exports = currentUser;

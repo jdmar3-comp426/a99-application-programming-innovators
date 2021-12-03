@@ -29,6 +29,22 @@ function CreateAccount() {
     sendRequest.open( "POST", "http://localhost:5000/app/new/user", true); //end point is address
     //the request is sent with the data to the database
     sendRequest.send( signupInfo );
+
+    //create a get request using signupinfo
+    const xhr2 = new XMLHttpRequest();
+    //I do not understand why onreadystatechange is necessary, but it is.
+    xhr2.onreadystatechange = function () {
+        if(xhr.readyState == 4 && xhr2.status == 200)
+            //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
+            //id="Element to Change" to that.
+            localStorage.setItem("id", xhr2.responseText);
+    }
+    //the GET request is opened to the respective endpoint
+    xhr2.open("GET", "http://localhost:5000/app/getfromid");
+    //the request is sent
+    xhr2.send(signupInfo);
+
+
 }
 //accesses the Create Account element from the html.
 const createForm = document.getElementById("Create Account");
@@ -125,7 +141,6 @@ getBtn.addEventListener("click", function (event) {
     event.preventDefault();
     GetAccounts();
 });
-
 //---------------------------------------------------------------------------------------------------------------------------//
 //CreateTransaction Call. Given an HTML form object with id "Create Transaction", which has input objects with id's "id",
 //"category", and "amount", and a button, the transaction will be created with the given information when the button is pressed.
