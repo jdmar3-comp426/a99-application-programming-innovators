@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // Make the server use cors
 app.use(cors());
-
+var currentUser = 0;
 // Set server port
 var HTTP_PORT = 5000
 // Start server
@@ -26,6 +26,7 @@ function currentTime() {
     const d = new Date();
     return d.getUTCMonth()+1+"/"+d.getUTCDate()+"/"+d.getUTCFullYear()+", "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds()+" UTC"
 }
+
 // READ (HTTP method GET) at root endpoint /app/
 app.get("/app/", (req, res, next) => {
     res.json({"message":"Your API works! (200)"});
@@ -43,6 +44,7 @@ app.post("/app/new/user", (req, res, next) => {
 	const stmt = db1.prepare("INSERT INTO userinfo (user, pass, email, lastlogin) VALUES (?, ?, ?, ?)");
 	const info = stmt.run(data.user, data.pass, data.email, data.lastlogin);
 	res.status(201).json({"message":stmt.changes + " record created: ID " + info.lastInsertRowid + " (201)"});
+	currentUser = info.lastInsertRowid;
 });
 // DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id
 app.delete("/app/delete/user/:id", (req, res) => {
@@ -115,3 +117,5 @@ app.use(function(req, res){
 	res.json({"message":"Endpoint not found. (404)"});
     res.status(404);
 });
+
+module.exports = currentUser;

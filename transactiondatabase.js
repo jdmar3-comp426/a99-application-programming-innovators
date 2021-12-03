@@ -3,7 +3,7 @@
 // Require better-sqlite.
 const Database = require('better-sqlite3');
 // Connect to databases or create them if one doesn't exist yet.
-const db2 = new Database('transactions.db')
+const db2 = new Database('transactions.db');
 
 // Is the database initialized or do we need to initialize it?
 const TStmt = db2.prepare(`SELECT name FROM sqlite_master WHERE type='table' and name='transactions';`);
