@@ -64,7 +64,7 @@ function DeleteAccount() {
 //accesses the Delete Account element from the html
 const deleteForm = document.getElementById("Delete Account");
 //adds listener to button in deleteForm
-deleteForm.addEventListener("submit", function (event) {
+deleteForm.addEventListener("click", function (event) {
     event.preventDefault();
     DeleteAccount();
 });
