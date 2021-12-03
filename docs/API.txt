@@ -1,0 +1,11 @@
+API endpoints:
+/app/  
+/app/new/user    for creating new user
+/app/delete/user/:id         for deleting a single user
+/app/user/:id       for readinng a single user
+/app/getfromid       for reading the id of the user 
+/app/users       for reading all users
+/app/update/user/:id    for updating a single user 
+/app/new/transaction     for creatin a new transaction
+/app/transactions/:id     for reading the transactions of the user
+/app/transactions/       for reading all the transactions
