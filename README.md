@@ -58,3 +58,4 @@ Links to Documentation:
 
 [link to overview of project](/docs/overview.txt)
 [link to roles for the project](/docs/Roles.txt)
+[link to outline image](/docs/BudgetApp_mockup.png)
