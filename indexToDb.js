@@ -1,4 +1,3 @@
-const getCurrentUser = require("./server.js");
 //SHORT DESCRIPTIONS    |
 //Create Account        |  Given user, email, and pass, adds account to database. Autogenerate id and lastloggedin.
 //Delete Account        |  Given id, remove account, and all associated transactions from databases.
@@ -34,7 +33,7 @@ function CreateAccount() {
 //accesses the Create Account element from the html.
 const createForm = document.getElementById("Create Account");
 //adds listener to the button in createForm
-createForm.addEventListener("submit", function (event) {
+createForm.addEventListener("click", function (event) {
     event.preventDefault();
     CreateAccount();
 });
