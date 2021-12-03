@@ -9,24 +9,39 @@
     <title>Assignment 99</title>
 </head>
     
-<body class="content">
-    <h2>Create Account</h2>
-    <form id="Create Account">
-        <label for="user">Username:</label>
-        <input id="user" name="user" value="">
+<body>
+    <section class="hero is-success">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title has-text-centered">
+                    Create Account
+                </h1>
+            </div>
+        </div> 
+    </section>
+
+    <section class="section">
+        <div>
+            <form id="Create Account">
+                <label for="user">Username:</label>
+                <input id="user" name="user" value="">
             
-        <label for="email">Email Address:</label>
-        <input id="email" name="email" value="">
+                <label for="email">Email Address:</label>
+                <input id="email" name="email" value="">
     
-        <label for="pass">Password:</label>
-        <input type="password" id="pass" name="pass" value="">
-        <input type="submit" value="Create">
-    </form>
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="pass" value="">
+                <input type="button" value="Create" onclick="window.location.href='./home.html'">
+            </form>
+        </div>
+    </section>
     
     <section>
-        <p>
-            <a href="./homeNew.html">Home</a>
-        </p>
+        <aside class="menu has-text-centered">
+            <ul class="menu-list">
+                <li><a href="./homeNew.html">Home</a></li>
+            </ul>
+        </aside>
     </section>
 </body>
 

@@ -49,7 +49,7 @@ function CreateAccount() {
 //accesses the Create Account element from the html.
 const createForm = document.getElementById("Create Account");
 //adds listener to the button in createForm
-createForm.addEventListener("submit", function (event) {
+createForm.addEventListener("click", function (event) {
     event.preventDefault();
     CreateAccount();
 });
@@ -80,7 +80,7 @@ function DeleteAccount() {
 //accesses the Delete Account element from the html
 const deleteForm = document.getElementById("Delete Account");
 //adds listener to button in deleteForm
-deleteForm.addEventListener("submit", function (event) {
+deleteForm.addEventListener("click", function (event) {
     event.preventDefault();
     DeleteAccount();
 });
