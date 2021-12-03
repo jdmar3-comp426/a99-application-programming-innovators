@@ -1,3 +1,4 @@
+const getCurrentUser = require("./server.js");
 //SHORT DESCRIPTIONS    |
 //Create Account        |  Given user, email, and pass, adds account to database. Autogenerate id and lastloggedin.
 //Delete Account        |  Given id, remove account, and all associated transactions from databases.
