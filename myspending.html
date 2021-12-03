@@ -21,27 +21,26 @@
     
     <section class="section">
         <div>
+             <h1>
+                <br>Total Spending:
+            </h1>            
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ?>
+
             <h1>
-                Spending This Month
+                <br>Spending Per Category
             </h1>
             <h2>
                 Food:
             </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = food">
             <h2>
                 Entertainment:
             </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = entertainment">
             <h2>
-                Other:
+                Shopping:
             </h2>
-            <h2>
-                Total:
-            </h2>
-
-
-            <h1>
-                Total Spending
-            </h1>
-       
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = shopping">
         </div>
     </section>
 
