@@ -9,6 +9,9 @@ API endpoints:
 /app/get/food/:id                         for selecting total of food transactions at id
 /app/get/entertainment/:id                for selecting total of entertainment transactions at id
 /app/get/shopping/:id                     for selecting total of shopping transactions at id
+/app/get/health/:id                       for selecting total of health transactions at id
+/app/get/housing/:id                      for selecting total of housing transactions at id
+/app/get/other/:id                        for selecting total of other transactions at id
 /app/get/other/:id                        for selecting total of other transactions at id
 /app/get/housing/:id                      for selecting total of housing transactions at id
 /app/get/health/:id                       for selecting total of other transactions at id
