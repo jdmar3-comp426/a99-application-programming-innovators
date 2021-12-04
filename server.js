@@ -68,10 +68,12 @@ app.get("/app/get/id/:email", (req, res) => {
 	res.json(stmt);
     res.status(200);
 })
+
+
 //READ a single users id at endpoint /app/getfromid
-app.get("/app/get/id/:", (req, res) => {
-	var pass = req.params.pass ? md5(req.params.pass) : null,
-	const stmt = db1.prepare("SELECT id FROM userinfo WHERE user = ? email = ? pass = ?")
+app.get("/app/get/id/:user/:email/:pass", (req, res) => {
+	var pass = (req.params.pass ? md5(req.params.pass) : null);
+	const stmt = db1.prepare("SELECT id FROM userinfo WHERE user = ? AND email = ? AND pass = ?")
 	.get(req.params.user, req.params.email, pass);
 	res.json(stmt);
     res.status(200);

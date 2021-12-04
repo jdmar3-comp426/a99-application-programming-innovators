@@ -2,6 +2,7 @@
 
 const logOutBtn = document.getElementById("logout");
 
-logOutBtn.addEventListener("submit", function(event) {
+logOutBtn.onclick = function () {
+    alert("You have logged out!");
     window.localStorage.setItem("id", null)
-});
+};

@@ -3,7 +3,6 @@ function CreateAccount() {
     var sendRequest = new XMLHttpRequest();
     //parses the data into a readable format
     var signupInfo = new URLSearchParams(new FormData( createForm ));
-    var id;
     //alerts sent as pop-ups if request makes it to server or not
     sendRequest.addEventListener( "load", function( event ) {
         alert( "Your account was successfully created!");
