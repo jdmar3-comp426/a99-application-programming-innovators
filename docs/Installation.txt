@@ -1,0 +1,8 @@
+use npm install to install the following:
+better-sqlite3,
+broswer-sync,
+bulma,
+concurrently,
+cors,
+express,
+md5
