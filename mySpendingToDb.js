@@ -9,7 +9,11 @@ function totalSpending() {
             //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
             //id="Element to Change" to that.
 //            localStorage.setItem("id", xhr2.responseText);
-            document.getElementById("total spending").textContent = "$" + xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            const x = "$" + xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            if(x != "$null")
+            {
+                document.getElementById("total spending").textContent = x;
+            }
         }
     }
     //the GET request is opened to the respective endpoint
@@ -27,7 +31,11 @@ function food() {
             //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
             //id="Element to Change" to that.
 //            localStorage.setItem("id", xhr2.responseText);
-            document.getElementById("food").textContent = xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            const x = "$" + xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            if(x != "$null")
+            {
+                document.getElementById("food").textContent = x;
+            }  
         }
     }
     //the GET request is opened to the respective endpoint
@@ -45,7 +53,11 @@ function entertainment() {
             //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
             //id="Element to Change" to that.
 //            localStorage.setItem("id", xhr2.responseText);
-            document.getElementById("entertainment").textContent = xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            const x = "$" + xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            if(x != "$null")
+            {
+                document.getElementById("entertainment").textContent = x;
+            }  
         }
     }
     //the GET request is opened to the respective endpoint
@@ -63,7 +75,11 @@ function shopping() {
             //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
             //id="Element to Change" to that.
 //            localStorage.setItem("id", xhr2.responseText);
-            document.getElementById("shopping").textContent = xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            const x = "$" + xhr2.responseText.slice(15).substring(0, xhr2.responseText.slice(15).length-1);
+            if(x != "$null")
+            {
+                document.getElementById("shopping").textContent = x;
+            }
         }
     }
     //the GET request is opened to the respective endpoint

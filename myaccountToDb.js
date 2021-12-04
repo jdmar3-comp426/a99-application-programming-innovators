@@ -7,6 +7,8 @@ function UpdateAccount() {
     var id = window.localStorage.getItem("id");
     id.replace(/[^0-9]/g, '');
     signupInfo.set("id", id);
+    window.localStorage.setItem("user", signupInfo.get("user"));
+    window.localStorage.setItem("email", signupInfo.get("email"));
     //alerts sent as pop-ups if request makes it to server or not
     sendRequest.addEventListener( "load", function( event ) {
         alert( "Your account was successfully updated!");
@@ -62,3 +64,13 @@ deleteForm.addEventListener("click", function (event) {
     DeleteAccount();
     window.localStorage.setItem("id", null);
 });
+
+function runChanges() {
+    const text = document.getElementById("username");
+    text.textContent = window.localStorage.getItem("user") + "'s Account"
+    const user = document.getElementById("user");
+    user.value = window.localStorage.getItem("user");
+    const email = document.getElementById("email");
+    email.value = window.localStorage.getItem("email");
+}
+document.body.onload = runChanges();
