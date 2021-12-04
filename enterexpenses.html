@@ -23,10 +23,14 @@
         <div>
             <form id="Create Transaction">              
                 <label for="category">Category:</label>
-                <input id="category" name="category" value="">
+                <select id="category" name="category">
+                    <option value="food">Food</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="shopping">Shopping</option>
+                </select>
       
                 <label for="amount">Amount:</label>
-                <input id="amount" name="amount" value="">
+                <input type ="number" id="amount" name="amount" value="">
         
                 <input type="submit" value="Create">
             </form>

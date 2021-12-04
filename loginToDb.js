@@ -9,7 +9,9 @@ function login(){
             window.localStorage.setItem("id", x);
             if(x != "404" && x != null && x.length != 0)
             {
-                alert( "Welcome Back!");
+                window.localStorage.setItem("user", loginInfo.get("user"));
+                window.localStorage.setItem("email", loginInfo.get("email"));
+                alert( "Welcome Back, " + window.localStorage.getItem("user") + "!");
                 window.open("http://localhost:3000/home.html", "_self");
             }
             else {

@@ -25,13 +25,13 @@ function CreateAccount() {
         if(xhr2.readyState == 4 && xhr2.status == 200){
             //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
             var x = xhr2.responseText.replace(/[^0-9]/g, '');
-            window.localStorage.setItem("id", x);
         }
     }
     //the GET request is opened to the respective endpoint
     xhr2.open("GET", "http://localhost:5000/app/get/id/" + signupInfo.get('email'));
     //the request is sent
     xhr2.send();
+
 }
 //accesses the Create Account element from the html.
 const createForm = document.getElementById("Create Account");

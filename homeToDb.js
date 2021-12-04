@@ -6,3 +6,9 @@ logOutBtn.onclick = function () {
     alert("You have logged out!");
     window.localStorage.setItem("id", null)
 };
+
+function runChanges() {
+    const text = document.getElementById("username");
+    text.textContent = "Welcome back, " + window.localStorage.getItem("user") + "!"
+}
+document.body.onload = runChanges();
