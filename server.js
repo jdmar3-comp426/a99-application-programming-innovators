@@ -87,21 +87,21 @@ app.get("/app/get/totalSpend/:id", (req, res) => {
 })
 
 app.get("/app/get/food/:id", (req, res) => {
-	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = food")
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = 'food'")
 	.get(req.params.id);
 	res.json(stmt);
     res.status(200);
 })
 
 app.get("/app/get/entertainment/:id", (req, res) => {
-	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = entertainment")
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = 'entertainment'")
 	.get(req.params.id);
 	res.json(stmt);
     res.status(200);
 })
 
 app.get("/app/get/shopping/:id", (req, res) => {
-	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = shopping")
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = 'shopping'")
 	.get(req.params.id);
 	res.json(stmt);
     res.status(200);
