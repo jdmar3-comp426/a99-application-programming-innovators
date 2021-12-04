@@ -62,14 +62,11 @@ app.get("/app/user/:id", (req, res) => {
     res.status(200);
 });
 //READ a single users id at endpoint /app/getfromid
-app.get("/app/getfromid", (req, res) => {
-	var data = {
-        user: req.body.user ? req.body.user : null,
-        pass: req.body.pass ? md5(req.body.pass) : null,
-        email: req.body.email ? req.body.email : null,
-		lastlogin: currentTime()
-    }
-	const stmt = db1.prepare("SELECT id FROM userinfo WHERE user = ? AND pass = ? AND email = ?").get()
+app.get("/app/getid/:email", (req, res) => {
+	const stmt = db1.prepare("SELECT id FROM userinfo WHERE email = ?")
+	.get(req.params.email);
+	res.json(stmt);
+    res.status(200);
 })
 //GET ALL
 // READ a list of all users (HTTP method GET) at endpoint /app/users/

@@ -34,22 +34,22 @@ function CreateAccount() {
     const xhr2 = new XMLHttpRequest();
     //I do not understand why onreadystatechange is necessary, but it is.
     xhr2.onreadystatechange = function () {
-        if(xhr.readyState == 4 && xhr2.status == 200)
+        if(xhr2.readyState == 4 && xhr2.status == 200){
             //xhr.responseText is the data that we get from the server. We are then setting the textContent of object
             //id="Element to Change" to that.
-            localStorage.setItem("id", xhr2.responseText);
+//            localStorage.setItem("id", xhr2.responseText);
+            document.getElementById("Element to Change 3").textContent = xhr2.responseText;
+        }
     }
     //the GET request is opened to the respective endpoint
-    xhr2.open("GET", "http://localhost:5000/app/getfromid");
+    xhr2.open("GET", "http://localhost:5000/app/getid/" + signupInfo.get('email'));
     //the request is sent
-    xhr2.send(signupInfo);
-
-
+    xhr2.send();
 }
 //accesses the Create Account element from the html.
 const createForm = document.getElementById("Create Account");
 //adds listener to the button in createForm
-createForm.addEventListener("click", function (event) {
+createForm.addEventListener("submit", function (event) {
     event.preventDefault();
     CreateAccount();
 });
