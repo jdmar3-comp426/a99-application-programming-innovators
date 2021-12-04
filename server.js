@@ -107,6 +107,13 @@ app.get("/app/get/shopping/:id", (req, res) => {
     res.status(200);
 })
 
+app.get("/app/get/other/:id", (req, res) => {
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = 'other'")
+	.get(req.params.id);
+	res.json(stmt);
+    res.status(200);
+})
+
 //GET ALL
 // READ a list of all users (HTTP method GET) at endpoint /app/users/
 app.get("/app/users", (req, res) => {	
