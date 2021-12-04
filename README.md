@@ -18,3 +18,5 @@ Run Instructions: npm rebuild then npm run start<br>
 [link to outline image](/docs/BudgetApp_mockup.png)<br>
 
 [link to wireframe image](/docs/BudgetApp_wireframe.png)<br>
+
+[link to video walkthrough](/docs/video.txt)
