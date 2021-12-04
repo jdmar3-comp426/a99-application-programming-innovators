@@ -25,7 +25,7 @@
                 <br>Total Spending:
             </h1>            
             <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ?>
-
+            <p id="total spending"></p>
             <h1>
                 <br>Spending Per Category
             </h1>
@@ -33,14 +33,17 @@
                 Food:
             </h2>
             <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = food">
+            <p id="food"></p>
             <h2>
                 Entertainment:
             </h2>
             <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = entertainment">
+            <p id="entertainment"></p>
             <h2>
                 Shopping:
             </h2>
             <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = shopping">
+            <p id="shopping"></p>
         </div>
     </section>
 
@@ -51,5 +54,6 @@
             </ul>
         </aside>
     </section>
+    <script src="./mySpendingToDb.js"></script>>
 </body>
 </html>

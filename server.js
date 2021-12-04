@@ -62,12 +62,49 @@ app.get("/app/user/:id", (req, res) => {
     res.status(200);
 });
 //READ a single users id at endpoint /app/getfromid
-app.get("/app/getid/:email", (req, res) => {
+app.get("/app/get/id/:email", (req, res) => {
 	const stmt = db1.prepare("SELECT id FROM userinfo WHERE email = ?")
 	.get(req.params.email);
 	res.json(stmt);
     res.status(200);
 })
+//READ a single users id at endpoint /app/getfromid
+app.get("/app/get/id/:", (req, res) => {
+	var pass = req.params.pass ? md5(req.params.pass) : null,
+	const stmt = db1.prepare("SELECT id FROM userinfo WHERE user = ? email = ? pass = ?")
+	.get(req.params.user, req.params.email, pass);
+	res.json(stmt);
+    res.status(200);
+})
+
+app.get("/app/get/totalSpend/:id", (req, res) => {
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ?")
+	.get(req.params.id);
+	res.json(stmt);
+    res.status(200);
+})
+
+app.get("/app/get/food/:id", (req, res) => {
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = food")
+	.get(req.params.id);
+	res.json(stmt);
+    res.status(200);
+})
+
+app.get("/app/get/entertainment/:id", (req, res) => {
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = entertainment")
+	.get(req.params.id);
+	res.json(stmt);
+    res.status(200);
+})
+
+app.get("/app/get/shopping/:id", (req, res) => {
+	const stmt = db2.prepare("SELECT SUM(amount) FROM transactions WHERE id = ? AND category = shopping")
+	.get(req.params.id);
+	res.json(stmt);
+    res.status(200);
+})
+
 //GET ALL
 // READ a list of all users (HTTP method GET) at endpoint /app/users/
 app.get("/app/users", (req, res) => {	
