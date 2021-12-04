@@ -9,7 +9,7 @@ Documentations:
 
 [link to dependencies](/docs/Dependencies.txt)<br>
 
-Run Instructions: npm run start<br>
+Run Instructions: npm rebuild then npm run start<br>
 
 [link to API endpoints](/docs/API.txt)<br>
 

@@ -1,0 +1,25 @@
+
+body {
+    text-align: center;
+}
+
+input[id=user], input[id=email], input[id=pass] {
+  margin: auto;
+  display: inline-block;
+  border: 3px solid;
+  box-sizing: border-box;
+  border-style: outset;
+  border-color: green;
+  margin-top: 20px;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  margin-bottom: 50px;
+}
+
+input[type=button] {
+    margin-top: 20px;
+    background-color: red;
+}
+
