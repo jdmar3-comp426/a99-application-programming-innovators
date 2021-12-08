@@ -1,0 +1,53 @@
+The Budget App
+Budgeting Simplified
+
+
+Design: (Use Bulma)
+3 pages: Account Info, Enter transaction, Display spending
+Account info
+Display username, email, user id
+Show delete account button 
+Enter transaction
+Drop down to select the category: Food, Entertainment, Subscriptions, Housing, Shopping, Investments, 
+Field to enter the amount
+Button to submit the transaction to the database
+Spending display
+Dropdown to select a category or total spending
+A field that shows spending this month in chosen category
+Field with a chart of spending each month in the chosen category
+
+
+
+
+Database Info:
+Database 1 (Db1): Users
+Per user:
+	Username
+	Password (encrypted)
+	Email
+	User ID (hashed)
+	LastLoggedIn (autodetect)
+Database 2 (Db2): Transactions
+Per Transaction:
+	User ID
+	Date (autodetect)
+	Category (from predefined list)
+	Amount (positive number)
+
+
+Endpoints Needed
+	Create Account:
+		Add Username, Password, Email, UserID, and LastLoggedIn to Db1.
+	Delete Account:
+		Remove User's row from Db1, and all their Transactions from Db2.
+	Sign In:
+		Compare User's username/email and password to the corresponding one in Db1.
+		Update LastLoggedIn.
+	Update Account:
+		Compare and Update Username, Password, and Email to Db1.
+	Make Transaction:
+		Add Category, Amount, and Date in Db2 to the corresponding user from Db1.
+	Get some Transactions:
+		Read all transactions of a given category.
+	Get all Transactions:
+		Read all transactions.

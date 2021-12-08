@@ -1,0 +1,5 @@
+Roles:
+
+Back end: Scott Amaranto, Zizhou Lu 
+
+Front end: Hunter Burkard, Ashwin Srinivasan, Jared Cohen

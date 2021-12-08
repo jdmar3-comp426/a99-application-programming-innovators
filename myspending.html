@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="custom_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
+    <title>Assignment 99</title>
+</head>
+<body>
+    <section class="hero is-success">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title has-text-centered">
+                    My Spending
+                </h1>
+            </div>
+        </div> 
+    </section>
+    
+    <section class="section">
+        <div>
+             <h1>
+                <br><strong>Total Spending:</strong>
+            </h1>            
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ?>
+            <p id="total spending">$0</p>
+            <h1>
+                <br><strong>Spending Per Category</strong>
+            </h1>
+            <h2>
+                Food:
+            </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = food">
+            <p id="food">$0</p>
+            <h2>
+                Entertainment:
+            </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = entertainment">
+            <p id="entertainment">$0</p>
+            <h2>
+                Shopping:
+            </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = shopping">
+            <p id="shopping">$0</p>
+            <h2>
+                Health:
+            </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = health">
+            <p id="health">$0</p>
+            <h2>
+                Housing:
+            </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = housing">
+            <p id="housing">$0</p>
+            <h2>
+                Other:
+            </h2>
+            <! Put result of database query here, "SELECT sum(amount) FROM transactions WHERE id = ? and category = other">
+            <p id="other">$0</p>
+        </div>
+    </section>
+
+    <section>
+        <aside class="menu has-text-centered">
+            <ul class="menu-list">
+                <li><a href="./home.html">Home</a></li>
+            </ul>
+        </aside>
+    </section>
+    <script src="./mySpendingToDb.js"></script>
+</body>
+</html>

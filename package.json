@@ -1,0 +1,34 @@
+{
+  "name": "the-budget-app",
+  "version": "0.0.1",
+  "description": "Budgeting Simplified",
+  "main": "server.js",
+  "proxy": "http://localhost:8080",
+  "author": "Scott Amaranto, Zizhou Lu, Hunter Burkard, Ashwin Srinivasan, Jared Cohen",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "better-sqlite3": "^7.4.5",
+    "browser-sync": "^2.27.7",
+    "bulma": "^0.9.3",
+    "concurrently": "^6.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "md5": "^2.3.0"
+  },
+  "scripts": {
+    "client": "npx browser-sync start -sw",
+    "server": "node server.js",
+    "start": "concurrently --kill-others \"npm run client\" \"npm run server\""
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmar3-comp426/a99-application-programming-innovators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jdmar3-comp426/a99-application-programming-innovators/issues"
+  },
+  "homepage": "https://github.com/jdmar3-comp426/a99-application-programming-innovators#readme"
+}

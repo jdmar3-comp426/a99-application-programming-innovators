@@ -1,0 +1,22 @@
+API endpoints:
+/app/  
+/app/new/user                             for creating new user
+/app/delete/user/:id                      for deleting a single user at id
+/app/user/:id                             for readinng a single user at id
+/app/user/:email                          for reading id from email
+/app/get/id/:user/:email/:pass            for selecting id from username, email, and password
+/app/get/totalSpend/:id                   for selecting total of all transactions at id
+/app/get/food/:id                         for selecting total of food transactions at id
+/app/get/entertainment/:id                for selecting total of entertainment transactions at id
+/app/get/shopping/:id                     for selecting total of shopping transactions at id
+/app/get/health/:id                       for selecting total of health transactions at id
+/app/get/housing/:id                      for selecting total of housing transactions at id
+/app/get/other/:id                        for selecting total of other transactions at id
+/app/get/other/:id                        for selecting total of other transactions at id
+/app/get/housing/:id                      for selecting total of housing transactions at id
+/app/get/health/:id                       for selecting total of other transactions at id
+/app/users                                for reading all the users
+/app/update/user/:id                      for updating user at id
+/app/new/transaction                      for creating new transaction
+/app/transactions/:id                     for reading single transaction at id
+/app/transactions/                        for reading all the transactions

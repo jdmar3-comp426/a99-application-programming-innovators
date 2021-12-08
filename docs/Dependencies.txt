@@ -1,0 +1,8 @@
+dependencies:
+better-sqlite3,
+browser-sync,
+bulma,
+concurrently,
+cors,
+express,
+md5
